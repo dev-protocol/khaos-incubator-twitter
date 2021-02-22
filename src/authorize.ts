@@ -1,5 +1,6 @@
 import { FunctionAuthorizer } from '@devprotocol/khaos-core'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const authorize: FunctionAuthorizer = async ({ message, secret }) => {
-	return [message, secret].every((x) => typeof x === 'string')
+	return undefined
 }

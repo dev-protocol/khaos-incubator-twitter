@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import test from 'ava'
 import { pack } from './pack'
 
 test('Returns callback function name', async (t) => {
 	const res = await pack({ results: {} as any })
-	t.is(res!.name, 'khaosCallback')
+	t.is(res!.name, 'finish')
 })
 
 test('Returns arguments', async (t) => {
