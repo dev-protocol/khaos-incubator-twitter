@@ -1,4 +1,3 @@
-/* eslint-disable functional/no-expression-statement */
 import urljoin from 'url-join'
 import axios from 'axios'
 
