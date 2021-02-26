@@ -1,13 +1,76 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable functional/immutable-data */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable functional/no-let */
+/* eslint-disable functional/prefer-readonly-type */
 import test from 'ava'
+import sinon from 'sinon'
 import { oraclize } from './oraclize'
+import * as programmableproxy from './programmable-proxy'
+
+let execute: sinon.SinonStub<[url: string], Promise<readonly [boolean, string]>>
+
+test.before(() => {
+	execute = sinon.stub(programmableproxy, 'execute')
+	execute
+		.withArgs('https://api.twitter.com/2/tweets/1234567890')
+		.resolves([true, 'hogehoge https://stakes.social hugahuga'])
+	execute
+		.withArgs('https://api.twitter.com/2/tweets/1234567891')
+		.resolves([false, ''])
+	execute
+		.withArgs('https://api.twitter.com/2/tweets/1234567892')
+		.resolves([true, ''])
+})
 
 test('oraclize is executed.', async (t) => {
 	const res = await oraclize({
-		signatureOptions: { address: 'account', id: 'signature', message: 'data' },
-		query: { allData: '{}', publicSignature: 'dummy-public-signature' } as any,
+		signatureOptions: {} as any,
+		query: {
+			allData: {
+				_twitterId: '1234567890',
+				_githubRepository: 'hogehoge/repository',
+			},
+		} as any,
 		network: 'mainnet',
 	})
-	t.is(res!.message, 'data')
+	t.is(res!.message, 'hogehoge/repository')
 	t.is(res!.status, 0)
-	t.is(res!.statusMessage, 'mainnet dummy-public-signature')
+	t.is(res!.statusMessage, '')
+})
+
+test('twitter api failed.', async (t) => {
+	const res = await oraclize({
+		signatureOptions: {} as any,
+		query: {
+			allData: {
+				_twitterId: '1234567891',
+				_githubRepository: 'hogehoge/repository',
+			},
+		} as any,
+		network: 'mainnet',
+	})
+	t.is(res!.message, 'hogehoge/repository')
+	t.is(res!.status, 1)
+	t.is(res!.statusMessage, 'twitter api error')
+})
+
+test('The URL of stakes.socials is not included in the twitter text.', async (t) => {
+	const res = await oraclize({
+		signatureOptions: {} as any,
+		query: {
+			allData: {
+				_twitterId: '1234567892',
+				_githubRepository: 'hogehoge/repository',
+			},
+		} as any,
+		network: 'mainnet',
+	})
+	t.is(res!.message, 'hogehoge/repository')
+	t.is(res!.status, 1)
+	t.is(res!.statusMessage, 'stakes social url is not included')
+})
+
+test.after(() => {
+	execute.restore()
 })

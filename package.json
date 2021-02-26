@@ -17,13 +17,19 @@
 	},
 	"dependencies": {
 		"@devprotocol/khaos-core": "1.2.3",
+		"@types/sinon": "^9.0.10",
+		"axios": "^0.21.1",
 		"ethers": "5.0.31",
-		"ramda": "0.27.1"
+		"ramda": "0.27.1",
+		"sinon": "9.2.4",
+		"url-join": "4.0.1",
+		"yarn": "1.22.10"
 	},
 	"devDependencies": {
 		"@ava/typescript": "1.1.1",
 		"@types/node": "14.14.31",
 		"@types/ramda": "0.27.38",
+		"@types/url-join": "4.0.0",
 		"@typescript-eslint/eslint-plugin": "4.15.2",
 		"@typescript-eslint/parser": "4.15.2",
 		"ava": "3.15.0",
