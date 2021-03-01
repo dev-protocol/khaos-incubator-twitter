@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import urljoin from 'url-join'
 import { FunctionOraclizer } from '@devprotocol/khaos-core'
 import { execute } from './programmable-proxy'
 
 export const oraclize: FunctionOraclizer = async ({
-	signatureOptions,
 	query,
-	network,
 }) => {
 	const twitterId: string = query.allData['_twitterId']
 	const repository: string = query.allData['_githubRepository']
