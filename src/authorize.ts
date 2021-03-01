@@ -1,6 +1,4 @@
 import { FunctionAuthorizer } from '@devprotocol/khaos-core'
+import { always } from 'ramda'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const authorize: FunctionAuthorizer = async ({ message, secret }) => {
-	return undefined
-}
+export const authorize: FunctionAuthorizer = always(Promise.resolve(undefined))
