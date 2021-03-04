@@ -3,10 +3,10 @@ import { addresses } from './addresses'
 
 test('Returns mainnet address', async (t) => {
 	const res = await addresses({ network: 'mainnet' })
-	t.is(res, '0x886f06F5118536589e89A719d3D9E61B330E95B6')
+	t.is(res, '0x02d107567020bCE1Eb524D80C44f899Fa9993E5f')
 })
 
 test('Returns ropsten address', async (t) => {
 	const res = await addresses({ network: 'ropsten' })
-	t.is(res, '0x1CF5A65D5594C507D797c855D71cF5524B15a639')
+	t.is(res, '0x554c3f103894901f4ea0c4c955EB0E6fB347b5A6')
 })
