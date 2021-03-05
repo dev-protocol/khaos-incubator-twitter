@@ -16,14 +16,43 @@ let get: sinon.SinonStub<
 test.before(() => {
 	get = sinon.stub(axios, 'get')
 	get
-		.withArgs('https://programmable-proxy.azureedge.net?s=http://hogehoge1&tweet.fields=entities')
-		.resolves({ status: 200, data: { data: { entities: { urls: [{ expanded_url: 'https://qqqq', unwound_url: 'https://qqqq' }] } } } })
+		.withArgs(
+			'https://programmable-proxy.azureedge.net?s=http://hogehoge1&tweet.fields=entities'
+		)
+		.resolves({
+			status: 200,
+			data: {
+				data: {
+					entities: {
+						urls: [
+							{ expanded_url: 'https://qqqq', unwound_url: 'https://qqqq' },
+						],
+					},
+				},
+			},
+		})
 	get
-		.withArgs('https://programmable-proxy.azureedge.net?s=http://hogehoge2&tweet.fields=entities')
-		.resolves({ status: 200, data: { data: { entities: { urls: [{ expanded_url: 'https://qqqq', unwound_url: 'https://qqqq' }, { expanded_url: 'https://iiii', unwound_url: 'https://iiii' }] } } } })
+		.withArgs(
+			'https://programmable-proxy.azureedge.net?s=http://hogehoge2&tweet.fields=entities'
+		)
+		.resolves({
+			status: 200,
+			data: {
+				data: {
+					entities: {
+						urls: [
+							{ expanded_url: 'https://qqqq', unwound_url: 'https://qqqq' },
+							{ expanded_url: 'https://iiii', unwound_url: 'https://iiii' },
+						],
+					},
+				},
+			},
+		})
 	get
-		.withArgs('https://programmable-proxy.azureedge.net?s=http://hugahuga&tweet.fields=entities')
-		.resolves({ status: 400, data: { "error": "error message" } })
+		.withArgs(
+			'https://programmable-proxy.azureedge.net?s=http://hugahuga&tweet.fields=entities'
+		)
+		.resolves({ status: 400, data: { error: 'error message' } })
 })
 test('api is sccessed.', async (t) => {
 	const [isStatusGreen, urls] = await getTextUrls('http://hogehoge1')

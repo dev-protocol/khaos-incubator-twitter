@@ -8,7 +8,10 @@ import sinon from 'sinon'
 import { oraclize } from './oraclize'
 import * as programmableproxy from './twitter'
 
-let getTextUrls: sinon.SinonStub<[url: string], Promise<readonly [boolean, readonly string[]]>>
+let getTextUrls: sinon.SinonStub<
+	[url: string],
+	Promise<readonly [boolean, readonly string[]]>
+>
 
 test.before(() => {
 	getTextUrls = sinon.stub(programmableproxy, 'getTextUrls')
