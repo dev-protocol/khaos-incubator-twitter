@@ -6,21 +6,21 @@
 import test from 'ava'
 import sinon from 'sinon'
 import { oraclize } from './oraclize'
-import * as programmableproxy from './programmable-proxy'
+import * as programmableproxy from './twitter'
 
-let execute: sinon.SinonStub<[url: string], Promise<readonly [boolean, string]>>
+let getTextUrls: sinon.SinonStub<[url: string], Promise<readonly [boolean, readonly string[]]>>
 
 test.before(() => {
-	execute = sinon.stub(programmableproxy, 'execute')
-	execute
+	getTextUrls = sinon.stub(programmableproxy, 'getTextUrls')
+	getTextUrls
 		.withArgs('https://api.twitter.com/2/tweets/1234567890')
-		.resolves([true, 'hogehoge https://stakes.social hugahuga'])
-	execute
+		.resolves([true, ['https://stakes.social']])
+	getTextUrls
 		.withArgs('https://api.twitter.com/2/tweets/1234567891')
-		.resolves([false, ''])
-	execute
+		.resolves([false, ['']])
+	getTextUrls
 		.withArgs('https://api.twitter.com/2/tweets/1234567892')
-		.resolves([true, ''])
+		.resolves([true, ['']])
 })
 
 test('oraclize is executed.', async (t) => {
@@ -72,5 +72,5 @@ test('The URL of stakes.socials is not included in the twitter text.', async (t)
 })
 
 test.after(() => {
-	execute.restore()
+	getTextUrls.restore()
 })
