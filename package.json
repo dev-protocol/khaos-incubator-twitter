@@ -19,7 +19,7 @@
 		"@devprotocol/khaos-core": "1.2.3",
 		"@types/sinon": "9.0.11",
 		"axios": "0.21.1",
-		"ethers": "5.0.31",
+		"ethers": "5.0.32",
 		"ramda": "0.27.1",
 		"sinon": "9.2.4",
 		"url-join": "4.0.1",
