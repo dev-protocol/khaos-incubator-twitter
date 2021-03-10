@@ -8,5 +8,5 @@ test('Returns mainnet address', async (t) => {
 
 test('Returns ropsten address', async (t) => {
 	const res = await addresses({ network: 'ropsten' })
-	t.is(res, '0x59D4b114866920eD57FfAdF14A9E84a11e41217B')
+	t.is(res, '0xca98de1774F13090014660fb80367Fde970C4A72')
 })
