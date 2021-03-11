@@ -1,5 +1,8 @@
 import urljoin from 'url-join'
-import { FunctionOraclizer, FunctionOraclizeResults } from '@devprotocol/khaos-core'
+import {
+	FunctionOraclizer,
+	FunctionOraclizeResults,
+} from '@devprotocol/khaos-core'
 import { getTextUrls } from './twitter'
 
 export const oraclize: FunctionOraclizer = async ({ query }) => {
@@ -15,11 +18,11 @@ export const oraclize: FunctionOraclizer = async ({ query }) => {
 		resStatus === 0
 			? ''
 			: isStatusGreen
-				? 'stakes social url is not included'
-				: 'twitter api error'
-	return ({
+			? 'stakes social url is not included'
+			: 'twitter api error'
+	return {
 		message: repository,
 		status: resStatus,
 		statusMessage: resStatusMessage,
-	} as FunctionOraclizeResults)
+	} as FunctionOraclizeResults
 }
