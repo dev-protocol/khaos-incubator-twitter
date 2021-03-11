@@ -1,5 +1,8 @@
 import urljoin from 'url-join'
-import { FunctionOraclizer } from '@devprotocol/khaos-core'
+import {
+	FunctionOraclizer,
+	FunctionOraclizeResults,
+} from '@devprotocol/khaos-core'
 import { getTextUrls } from './twitter'
 
 export const oraclize: FunctionOraclizer = async ({ query }) => {
@@ -21,5 +24,5 @@ export const oraclize: FunctionOraclizer = async ({ query }) => {
 		message: repository,
 		status: resStatus,
 		statusMessage: resStatusMessage,
-	}
+	} as FunctionOraclizeResults
 }
