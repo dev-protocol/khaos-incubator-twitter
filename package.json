@@ -17,7 +17,7 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
-		"@devprotocol/khaos-core": "1.2.3",
+		"@devprotocol/khaos-core": "1.2.6",
 		"@types/sinon": "9.0.11",
 		"axios": "0.21.1",
 		"ethers": "5.0.32",
