@@ -18,8 +18,8 @@ export const oraclize: FunctionOraclizer = async ({ query }) => {
 		resStatus === 0
 			? ''
 			: isStatusGreen
-				? 'stakes social url is not included'
-				: 'twitter api error'
+			? 'stakes social url is not included'
+			: 'twitter api error'
 	return {
 		message: repository,
 		status: resStatus,
