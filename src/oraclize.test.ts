@@ -6,7 +6,7 @@
 import test from 'ava'
 import sinon from 'sinon'
 import { oraclize } from './oraclize'
-import * as programmableproxy from './twitter'
+import * as utilts from '@devprotocol/util-ts'
 
 let getTextUrls: sinon.SinonStub<
 	[url: string],
@@ -14,7 +14,7 @@ let getTextUrls: sinon.SinonStub<
 >
 
 test.before(() => {
-	getTextUrls = sinon.stub(programmableproxy, 'getTextUrls')
+	getTextUrls = sinon.stub(utilts, 'getTextUrls')
 	getTextUrls
 		.withArgs('https://api.twitter.com/2/tweets/1234567890')
 		.resolves([true, ['https://stakes.social']])

@@ -3,7 +3,7 @@ import {
 	FunctionOraclizer,
 	FunctionOraclizeResults,
 } from '@devprotocol/khaos-core'
-import { getTextUrls } from './twitter'
+import { getTextUrls } from '@devprotocol/util-ts'
 
 export const oraclize: FunctionOraclizer = async ({ query }) => {
 	const twitterId: string = query.allData['_twitterId']
@@ -18,8 +18,8 @@ export const oraclize: FunctionOraclizer = async ({ query }) => {
 		resStatus === 0
 			? ''
 			: isStatusGreen
-			? 'stakes social url is not included'
-			: 'twitter api error'
+				? 'stakes social url is not included'
+				: 'twitter api error'
 	return {
 		message: repository,
 		status: resStatus,

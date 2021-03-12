@@ -19,6 +19,7 @@
 	"dependencies": {
 		"@devprotocol/khaos-core": "1.2.3",
 		"@types/sinon": "9.0.11",
+		"@devprotocol/util-ts": "2.2.0",
 		"axios": "0.21.1",
 		"ethers": "5.0.32",
 		"ramda": "0.27.1",
