@@ -15,15 +15,9 @@ let getTextUrls: sinon.SinonStub<
 
 test.before(() => {
 	getTextUrls = sinon.stub(utilts, 'getTextUrls')
-	getTextUrls
-		.withArgs('https://api.twitter.com/2/tweets/1234567890')
-		.resolves([true, ['https://stakes.social']])
-	getTextUrls
-		.withArgs('https://api.twitter.com/2/tweets/1234567891')
-		.resolves([false, ['']])
-	getTextUrls
-		.withArgs('https://api.twitter.com/2/tweets/1234567892')
-		.resolves([true, ['']])
+	getTextUrls.withArgs('1234567890').resolves([true, ['https://stakes.social']])
+	getTextUrls.withArgs('1234567891').resolves([false, ['']])
+	getTextUrls.withArgs('1234567892').resolves([true, ['']])
 })
 
 test('oraclize is executed.', async (t) => {
