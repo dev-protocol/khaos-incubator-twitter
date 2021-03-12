@@ -3,7 +3,7 @@ import {
 	FunctionOraclizer,
 	FunctionOraclizeResults,
 } from '@devprotocol/khaos-core'
-import { getTextUrls } from './twitter'
+import { getTextUrls } from '@devprotocol/util-ts'
 
 export const oraclize: FunctionOraclizer = async ({ query }) => {
 	const twitterId: string = query.allData['_twitterId']
