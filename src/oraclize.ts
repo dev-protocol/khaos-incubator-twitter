@@ -1,4 +1,3 @@
-import urljoin from 'url-join'
 import {
 	FunctionOraclizer,
 	FunctionOraclizeResults,
@@ -8,8 +7,7 @@ import { getTextUrls } from '@devprotocol/util-ts'
 export const oraclize: FunctionOraclizer = async ({ query }) => {
 	const twitterId: string = query.allData['_twitterId']
 	const repository: string = query.allData['_githubRepository']
-	const twitterUrl = urljoin('https://api.twitter.com/2/tweets', twitterId)
-	const [isStatusGreen, urls] = await getTextUrls(twitterUrl)
+	const [isStatusGreen, urls] = await getTextUrls(twitterId)
 	const stakesSocialUrls = urls.filter(
 		(url) => url.indexOf('https://stakes.social') !== -1
 	)
@@ -18,8 +16,8 @@ export const oraclize: FunctionOraclizer = async ({ query }) => {
 		resStatus === 0
 			? ''
 			: isStatusGreen
-			? 'stakes social url is not included'
-			: 'twitter api error'
+				? 'stakes social url is not included'
+				: 'twitter api error'
 	return {
 		message: repository,
 		status: resStatus,
