@@ -23,7 +23,7 @@
 		"axios": "0.21.1",
 		"ethers": "5.2.0",
 		"ramda": "0.27.1",
-		"sinon": "11.0.0",
+		"sinon": "11.1.0",
 		"yarn": "1.22.10"
 	},
 	"devDependencies": {
