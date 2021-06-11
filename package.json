@@ -21,7 +21,7 @@
 		"@devprotocol/util-ts": "2.2.1",
 		"@types/sinon": "10.0.2",
 		"axios": "0.21.1",
-		"ethers": "5.3.0",
+		"ethers": "5.3.1",
 		"ramda": "0.27.1",
 		"sinon": "11.1.1",
 		"yarn": "1.22.10"
