@@ -20,7 +20,7 @@
 		"@devprotocol/khaos-core": "1.4.0",
 		"@devprotocol/util-ts": "2.2.1",
 		"@types/sinon": "10.0.2",
-		"axios": "0.21.1",
+		"axios": "0.21.2",
 		"ethers": "5.4.6",
 		"ramda": "0.27.1",
 		"sinon": "11.1.2",
