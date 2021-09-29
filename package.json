@@ -24,7 +24,7 @@
 		"ethers": "5.4.7",
 		"ramda": "0.27.1",
 		"sinon": "11.1.2",
-		"yarn": "1.22.11"
+		"yarn": "1.22.13"
 	},
 	"devDependencies": {
 		"@ava/typescript": "1.1.1",
